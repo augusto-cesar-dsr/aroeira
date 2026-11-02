@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mural digital de imóveis à venda e para locação do Residencial Flora Park Aroeira.">
+  <meta name="theme-color" content="#b89772">
+  <title>Mural de Imóveis • Residencial Flora Park Aroeira</title>
+
+  <!-- Tipografia: Fraunces (títulos) + Manrope (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..600&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon em SVG (folha estilizada) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e4d3b'/%3E%3Cpath d='M32 50V26' stroke='%23f4ebd0' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M31 40c-8 0-13-5-13-12 8 0 13 5 13 12Z' fill='%23f4ebd0'/%3E%3Cpath d='M33 32c8 0 13-5 13-12-8 0-13 5-13 12Z' fill='%23d9822b'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip-link" href="#mural">Ir para os anúncios</a>
+
+  <!-- Moldura de madeira que envolve o mural -->
+  <div class="frame">
+    <span class="screw screw--tl" aria-hidden="true"></span>
+    <span class="screw screw--tr" aria-hidden="true"></span>
+    <span class="screw screw--bl" aria-hidden="true"></span>
+    <span class="screw screw--br" aria-hidden="true"></span>
+
+    <div class="board">
+      <div class="board__inner">
+
+        <header class="board__header">
+          <div class="header__top">
+            <!-- Espaço reservado para o logotipo. Substitua o conteúdo de .brand__mark por <img src="logo.png" alt="..."> se preferir. -->
+            <a class="brand" href="index.html" aria-label="Residencial Flora Park Aroeira — página inicial">
+              <span class="brand__mark" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" role="presentation">
+                  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.4" opacity=".5"/>
+                  <circle cx="32" cy="32" r="26.5" stroke="currentColor" stroke-width=".8" opacity=".3"/>
+                  <path d="M32 48V24" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  <path d="M31.4 40.5c-7.3 0-11.8-4.5-11.8-11.2 7 0 11.8 4.5 11.8 11.2Z" fill="currentColor" opacity=".9"/>
+                  <path d="M32.6 32.8c7.3 0 11.8-4.5 11.8-11.2-7 0-11.8 4.5-11.8 11.2Z" fill="currentColor" opacity=".65"/>
+                  <path d="M31.4 47.6c-5 0-8.1-3.1-8.1-7.7 4.8 0 8.1 3.1 8.1 7.7Z" fill="currentColor" opacity=".45"/>
+                </svg>
+              </span>
+              <span class="brand__text">
+                <span class="brand__eyebrow">Residencial</span>
+                <span class="brand__name">Flora Park</span>
+                <span class="brand__sub">Aroeira</span>
+              </span>
+            </a>
+
+            <div class="title-block">
+              <div class="ornament" aria-hidden="true">
+                <span class="ornament__line"></span>
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M11.6 16.5C7.8 16.5 5.5 14 5.5 10.4c3.8 0 6.1 2.5 6.1 6.1Z" fill="currentColor" opacity=".85"/>
+                  <path d="M12.4 12.7c3.8 0 6.1-2.5 6.1-6.1-3.8 0-6.1 2.5-6.1 6.1Z" fill="currentColor" opacity=".6"/>
+                </svg>
+                <span class="ornament__line"></span>
+              </div>
+              <h1 class="title">Mural de Imóveis</h1>
+              <p class="subtitle">
+                <span>À venda</span>
+                <span class="subtitle__dot" aria-hidden="true">•</span>
+                <span>Para locação</span>
+              </p>
+            </div>
+
+            <p class="updated" id="updated" data-state="loading" aria-live="polite">
+              <span class="updated__dot" aria-hidden="true"></span>
+              <span id="updatedText">Buscando anúncios…</span>
+            </p>
+          </div>
+        </header>
+
+      </div>
+
+      <!-- Faixa de madeira entre o cabeçalho e o painel de cortiça -->
+      <div class="board__band" aria-hidden="true"></div>
+
+      <main class="board__main" id="mural">
+        <div class="toolbar">
+          <p class="toolbar__count" id="count" aria-live="polite">Carregando anúncios…</p>
+          <div class="filters" role="group" aria-label="Filtrar anúncios por tipo">
+            <button type="button" class="filter is-active" data-filter="todos" aria-pressed="true" aria-controls="grid">Todos</button>
+            <button type="button" class="filter" data-filter="vende-se" aria-pressed="false" aria-controls="grid">Vende-se</button>
+            <button type="button" class="filter" data-filter="aluga-se" aria-pressed="false" aria-controls="grid">Aluga-se</button>
+          </div>
+        </div>
+
+        <!-- Aviso de modo demonstração / erro de conexão -->
+        <div class="notice" id="notice" role="status" hidden>
+          <svg class="notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 10.5V16" stroke-linecap="round"/>
+            <circle cx="12" cy="7.8" r=".9" fill="currentColor" stroke="none"/>
+          </svg>
+          <p id="noticeText"></p>
+          <button type="button" class="notice__close" id="noticeClose" aria-label="Fechar aviso">&times;</button>
+        </div>
+
+        <!-- Os cards são criados dinamicamente pelo script.js -->
+        <section class="grid" id="grid" aria-busy="true" aria-label="Anúncios de imóveis"></section>
+        <p class="empty" id="empty" hidden>Nenhum anúncio encontrado para este filtro.</p>
+        <noscript>
+          <p class="empty">Ative o JavaScript no navegador para visualizar os anúncios do mural.</p>
+        </noscript>
+      </main>
+
+      <!-- Faixa de madeira entre o painel de cortiça e o rodapé -->
+      <div class="board__band" aria-hidden="true"></div>
+
+      <footer class="board__footer">
+        <p>
+          <span>Divulgue seu imóvel aqui</span>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <span>Informações com a administração</span>
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
